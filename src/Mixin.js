@@ -132,7 +132,7 @@ var Mixin = {
       // The query has not changed, so there is no need to re-register it
       return;
     }
-    if (this._lastQueryHash[name] && hash !== this._lastQueryHash[name]) {
+    if ((this._lastQueryHash[name] && hash !== this._lastQueryHash[name]) || force) {
       // We were previously associated with a different version of this query.
       // We need to unregister first before moving forward.
       SubscriptionManager.unsubscribeQuery(
